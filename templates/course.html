@@ -9,10 +9,28 @@
 </head>
 <body>
     <form action="/course" method="post">
-        <input type="text" name="name" id="name">
-        <input type="text" name="fees" id="fees">
+        <input type="text" name="name" placeholder="course name" id="name">
+        <input type="text" name="fees" id="fees" placeholder="fees">
         <button>Submit</button>
     </form>
-
+    <table>
+        <thead>
+            <th>Course</th>
+            <th>Fees</th>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{course[1]}}</td>
+                <td>{{course[2]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        {% if status %}
+        alert("{{status}}")
+        {% endif %}
+    </script>
 </body>
 </html>

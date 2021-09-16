@@ -9,8 +9,20 @@
 <body>
     <h1>Please give your feedback</h1>
     <form action="/feedback" method="POST">
+        <select name="course" id="course">
+            {% for course in courses %}
+            <option value="{{course[0]}}">
+                {{course[1]}}
+            </option>
+            {% endfor %}
+        </select>
         <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
         <button>Submit</button>
     </form>
+    <script>
+        {% if status %}
+        alert("{{status}}")
+        {% endif %}
+    </script>
 </body>
 </html>
